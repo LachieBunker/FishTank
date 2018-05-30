@@ -1,0 +1,58 @@
+>GameManager
+collectedMoney int
+collectedHarvest List<HarvestStruct>
+moneyText Text
+harvestText Text
+AddMoney(amount int)
+RemoveMoney(amount int)
+AddHarvest(harvest HarvestStruct)
+SellHarvest(harvest HarvestStruct)
+UpdateUI()
+Quit()
+
+>TankManager
+tankDimensions Vector3
+tankContents GameObject
+objectMovementDelegates List<ObjectMovementDelegate>
+AddObjectToTank(_object GameObject, position Vector3 = null)
+AddObjectToTankWithMovement(_object GameObject, position Vector3 = null)
+RemoveObjectFromTank(_object GameObject)
+AddFood(food GameObject)
+
+>BaseFishClass : ObjectInteractionInterface
+moveSpeed float
+dirBinary int
+dirAngle Vector3
+timeSpeed float 6s?
+hunger int
+hungerDecay int
+happiness int
+happinessDecay int
+happinessThreshold int
+happinessThresholdDecay int
+harvestChance int
+harvestChanceIncreaseRate int
+harvest GameObject
+FoodNearby() GameObject
+Movement() : CoRoutine
+SimulateTime : CoRoutine //tick hunger down and harvestchance up
+IncreaseHappiness(amount int, ignoreThreshold bool)
+EatFood(food GameObject)
+ProduceHarvest()
+Dead()
+
+>FoodClass
+amount int
+EatFood() int
+
+>HarvestStruct
+name string
+value int
+
+>BaseHarvestClass : ObjectInteractionInterface
+harvestData HarvestStruct
+CollectHarvest() HarvestStruct
+DestroyHarvest()
+
+>ObjectInteractionInterface
+Interact()
