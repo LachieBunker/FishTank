@@ -9,7 +9,7 @@ public class BaseHarvestClass : MonoBehaviour, ObjectInteractionInterface {
     //implement interface with function
     public void Interact()
     {
-        GameObject.FindWithTag("GameController").GetComponent<GameManager>().AddHarvest(harvestData);
+        GameObject.FindWithTag("GameController").GetComponent<GameManager>().AddItemToInventory(harvestData.Name);
         GameObject.FindWithTag("TankManager").GetComponent<TankManager>().RemoveObjectFromTank(gameObject);
         Destroy(gameObject);
     }

@@ -9,6 +9,7 @@ TagManager:
   - Food
   - Harvest
   - Fish
+  - ShopManager
   layers:
   - Default
   - TransparentFX
